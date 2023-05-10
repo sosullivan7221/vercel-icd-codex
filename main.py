@@ -1,14 +1,15 @@
-from flask import Flask, request
-import pandas as pd 
+from fastapi import FastAPI
+import pandas as pd
+import uvicorn
 
-app = Flask(__name__)
+app = FastAPI()
 
-@app.route('/', methods=["GET"])
+@app.get("/")
 def home():
-    return 'This is the landing page for Minnesota ICD Code details'
+    return {"Placeholder"}
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
 
